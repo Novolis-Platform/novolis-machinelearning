@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "Novolis.MachineLearning": {
+      "paths": [
+        "src/Novolis.MachineLearning/**",
+        "tests/**",
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json"
+      ],
+      "project": "src/Novolis.MachineLearning/Novolis.MachineLearning.csproj"
+    }
+  }
+}
