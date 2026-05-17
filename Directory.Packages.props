@@ -6,7 +6,7 @@
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.203" />
     <PackageVersion Include="System.IO.Abstractions" Version="22.1.0" />
     <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.1.0" />
-    <PackageVersion Include="TUnit" Version="1.41.0" />
-    <PackageVersion Include="TUnit.Core" Version="1.41.0" />
+    <PackageVersion Include="TUnit" Version="1.44.39" />
+    <PackageVersion Include="TUnit.Core" Version="1.44.39" />
   </ItemGroup>
 </Project>

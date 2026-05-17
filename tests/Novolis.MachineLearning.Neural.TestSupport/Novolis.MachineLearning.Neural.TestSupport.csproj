@@ -3,6 +3,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="TUnit" />
     <PackageReference Include="TUnit.Core" />
     <ProjectReference Include="..\..\src\Novolis.MachineLearning.Neural.Abstractions\Novolis.MachineLearning.Neural.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Novolis.MachineLearning.Neural\Novolis.MachineLearning.Neural.csproj" />
