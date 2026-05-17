@@ -1,14 +1,33 @@
 {
   "packages": {
-    "Novolis.MachineLearning": {
+    "Novolis.MachineLearning.Core": {
       "paths": [
-        "src/Novolis.MachineLearning/**",
-        "tests/**",
+        "src/Novolis.MachineLearning.Core/**",
+        "tests/Novolis.MachineLearning.Core.Tests/**",
         "Directory.Build.props",
         "Directory.Packages.props",
         "global.json"
       ],
-      "project": "src/Novolis.MachineLearning/Novolis.MachineLearning.csproj"
+      "project": "src/Novolis.MachineLearning.Core/Novolis.MachineLearning.Core.csproj"
+    },
+    "Novolis.MachineLearning.Neural.Abstractions": {
+      "paths": [
+        "src/Novolis.MachineLearning.Neural.Abstractions/**",
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json"
+      ],
+      "project": "src/Novolis.MachineLearning.Neural.Abstractions/Novolis.MachineLearning.Neural.Abstractions.csproj"
+    },
+    "Novolis.MachineLearning.Neural": {
+      "paths": [
+        "src/Novolis.MachineLearning.Neural/**",
+        "tests/Novolis.MachineLearning.Neural.Tests/**",
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json"
+      ],
+      "project": "src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj"
     }
   }
 }

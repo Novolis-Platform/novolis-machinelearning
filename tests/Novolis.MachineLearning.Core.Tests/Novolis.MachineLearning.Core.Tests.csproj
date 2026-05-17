@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TUnit" />
+    <ProjectReference Include="..\..\src\Novolis.MachineLearning.Core\Novolis.MachineLearning.Core.csproj" />
+    <ProjectReference Include="..\Novolis.MachineLearning.TestSupport\Novolis.MachineLearning.TestSupport.csproj" />
+  </ItemGroup>
+</Project>

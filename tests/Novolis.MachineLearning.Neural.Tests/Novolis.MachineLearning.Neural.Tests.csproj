@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TUnit" />
+    <ProjectReference Include="..\..\src\Novolis.MachineLearning.Neural.Abstractions\Novolis.MachineLearning.Neural.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Novolis.MachineLearning.Neural\Novolis.MachineLearning.Neural.csproj" />
+    <ProjectReference Include="..\Novolis.MachineLearning.Neural.TestSupport\Novolis.MachineLearning.Neural.TestSupport.csproj" />
+    <ProjectReference Include="..\Novolis.MachineLearning.TestSupport\Novolis.MachineLearning.TestSupport.csproj" />
+  </ItemGroup>
+</Project>
