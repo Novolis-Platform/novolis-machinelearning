@@ -1,7 +1,9 @@
 namespace Novolis.MachineLearning.Neural;
 
+/// <summary>Neural network that supports supervised and policy-gradient training steps.</summary>
 public interface ITrainableNeuralNetwork : INeuralNetwork
 {
+    /// <summary>One supervised gradient step toward <paramref name="target"/>.</summary>
     double TrainSupervised(ReadOnlySpan<double> input, ReadOnlySpan<double> target, double learningRate);
 
     /// <summary>

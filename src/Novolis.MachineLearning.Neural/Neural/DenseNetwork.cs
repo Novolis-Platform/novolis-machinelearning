@@ -4,15 +4,25 @@ using Novolis.MachineLearning.Neural.Persistence;
 
 namespace Novolis.MachineLearning.Neural;
 
+/// <summary>Fully-connected feed-forward network with training and mutation support.</summary>
 public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwork
 {
+    /// <inheritdoc />
     public required string Name { get; init; }
+
+    /// <summary>Dense layers from input to output.</summary>
     public required DenseLayer[] Layers { get; init; }
 
+    /// <inheritdoc />
     public int InputSize => Layers[0].InputCount;
+
+    /// <inheritdoc />
     public int OutputSize => Layers[^1].OutputCount;
+
+    /// <inheritdoc />
     public IReadOnlyList<int> LayerSizes => [InputSize, .. Layers.Select(x => x.OutputCount)];
 
+    /// <summary>Creates a randomly initialized network with Xavier-style weight scaling.</summary>
     public static DenseNetwork Create(
         string name,
         int inputSize,
@@ -53,9 +63,11 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         return new DenseNetwork { Name = name, Layers = layers };
     }
 
+    /// <inheritdoc />
     public ReadOnlyMemory<double> Forward(ReadOnlySpan<double> input)
         => Evaluate(input).Output;
 
+    /// <inheritdoc />
     public NetworkEvaluation Evaluate(ReadOnlySpan<double> input)
     {
         int numLayers = Layers.Length;
@@ -88,6 +100,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         return new NetworkEvaluation(activations[numLayers], activations, weightedSums);
     }
 
+    /// <inheritdoc />
     public double TrainSupervised(ReadOnlySpan<double> input, ReadOnlySpan<double> target, double learningRate)
     {
         var eval = Evaluate(input);
@@ -139,6 +152,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         return mse / outputActivations.Length;
     }
 
+    /// <inheritdoc />
     public void TrainWithOutputGradient(ReadOnlySpan<double> input, ReadOnlySpan<double> lossGradientWrtOutputActivation, double learningRate)
     {
         if (lossGradientWrtOutputActivation.Length != OutputSize)
@@ -182,6 +196,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         }
     }
 
+    /// <inheritdoc />
     public IMutableNeuralNetwork Clone(string? name = null)
     {
         var newLayers = new DenseLayer[Layers.Length];
@@ -200,6 +215,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         return new DenseNetwork { Name = name ?? Name, Layers = newLayers };
     }
 
+    /// <inheritdoc />
     public void Mutate(Random random, MutationSettings settings)
     {
         foreach (var layer in Layers)
@@ -215,6 +231,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         }
     }
 
+    /// <inheritdoc />
     public void CopyFrom(INeuralNetwork other)
     {
         if (other.InputSize != InputSize || other.OutputSize != OutputSize)
@@ -245,6 +262,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
         }
     }
 
+    /// <summary>Exports the network to a persistable snapshot.</summary>
     public NetworkSnapshot ToSnapshot(string id, IReadOnlyDictionary<string, string>? metadata = null)
     {
         var layerSnapshots = Layers.Select(l =>
@@ -270,6 +288,7 @@ public sealed class DenseNetwork : ITrainableNeuralNetwork, IMutableNeuralNetwor
             metadata);
     }
 
+    /// <summary>Reconstructs a network from a snapshot.</summary>
     public static DenseNetwork FromSnapshot(NetworkSnapshot snapshot)
     {
         var layers = snapshot.Layers.Select(l =>

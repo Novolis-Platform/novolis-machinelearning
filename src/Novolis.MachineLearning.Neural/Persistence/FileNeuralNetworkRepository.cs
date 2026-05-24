@@ -2,17 +2,20 @@ using System.IO.Abstractions;
 
 namespace Novolis.MachineLearning.Neural.Persistence;
 
+/// <summary>File-system implementation of <see cref="INeuralNetworkRepository"/>.</summary>
 public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
 {
     private readonly string _rootDirectory;
     private readonly INeuralNetworkSerializer _serializer;
     private readonly IFileSystem _fileSystem;
 
+    /// <summary>Creates a repository using the physical file system.</summary>
     public FileNeuralNetworkRepository(string rootDirectory, INeuralNetworkSerializer serializer)
         : this(rootDirectory, serializer, new FileSystem())
     {
     }
 
+    /// <summary>Creates a repository with an injectable file system (for tests).</summary>
     public FileNeuralNetworkRepository(string rootDirectory, INeuralNetworkSerializer serializer, IFileSystem fileSystem)
     {
         _rootDirectory = rootDirectory;
@@ -20,6 +23,7 @@ public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
         _fileSystem = fileSystem;
     }
 
+    /// <inheritdoc />
     public async ValueTask SaveAsync(NetworkSnapshot snapshot, CancellationToken cancellationToken = default)
     {
         _fileSystem.Directory.CreateDirectory(_rootDirectory);
@@ -28,6 +32,7 @@ public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
         await _fileSystem.File.WriteAllTextAsync(path, content, cancellationToken);
     }
 
+    /// <inheritdoc />
     public async ValueTask<NetworkSnapshot?> LoadAsync(string id, CancellationToken cancellationToken = default)
     {
         var path = _fileSystem.Path.Combine(_rootDirectory, $"{id}.json");
@@ -37,16 +42,21 @@ public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
         return _serializer.Deserialize(content);
     }
 
+    /// <inheritdoc />
     public ValueTask<IReadOnlyList<NetworkSnapshotMetadata>> ListAsync(CancellationToken cancellationToken = default)
     {
-        _fileSystem.Directory.CreateDirectory(_rootDirectory);
-        var items = _fileSystem.Directory
-            .EnumerateFiles(_rootDirectory, "*.json", SearchOption.TopDirectoryOnly)
-            .Select(_fileSystem.File.ReadAllText)
-            .Select(_serializer.Deserialize)
-            .Select(x => new NetworkSnapshotMetadata(x.Id, x.Name, x.CreatedAtUtc, x.Metadata))
-            .OrderByDescending(x => x.CreatedAtUtc)
-            .ToArray();
-        return ValueTask.FromResult<IReadOnlyList<NetworkSnapshotMetadata>>(items);
+        cancellationToken.ThrowIfCancellationRequested();
+        if (!_fileSystem.Directory.Exists(_rootDirectory))
+            return ValueTask.FromResult<IReadOnlyList<NetworkSnapshotMetadata>>([]);
+
+        var list = new List<NetworkSnapshotMetadata>();
+        foreach (var file in _fileSystem.Directory.EnumerateFiles(_rootDirectory, "*.json"))
+        {
+            var content = _fileSystem.File.ReadAllText(file);
+            var snapshot = _serializer.Deserialize(content);
+            list.Add(new NetworkSnapshotMetadata(snapshot.Id, snapshot.Name, snapshot.CreatedAtUtc, snapshot.Metadata));
+        }
+
+        return ValueTask.FromResult<IReadOnlyList<NetworkSnapshotMetadata>>(list);
     }
 }

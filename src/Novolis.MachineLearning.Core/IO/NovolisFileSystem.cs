@@ -7,6 +7,7 @@ namespace Novolis.MachineLearning.Core.IO;
 /// </summary>
 public static class NovolisFileSystem
 {
+    /// <summary>Solution file name used to locate the repository root.</summary>
     public const string SolutionFileName = "Novolis.MachineLearning.slnx";
 
     /// <summary>Repository root (directory that contains <see cref="SolutionFileName"/>).</summary>

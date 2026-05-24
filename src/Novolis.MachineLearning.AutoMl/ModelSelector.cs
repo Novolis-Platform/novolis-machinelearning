@@ -6,10 +6,13 @@ using Microsoft.ML.Data;
 
 namespace Novolis.MachineLearning.AutoMl;
 
+/// <summary>ML.NET AutoML experiment runner for tabular data.</summary>
+/// <typeparam name="TEntity">Training row type.</typeparam>
 public class ModelSelector<TEntity> where TEntity : class, new()
 {
     private readonly MLContext _mlContext;
 
+    /// <summary>Creates a selector with a default ML context.</summary>
     public ModelSelector()
     {
         _mlContext = new MLContext();
@@ -27,6 +30,7 @@ public class ModelSelector<TEntity> where TEntity : class, new()
         return experiment.Execute(data, labelColumn, null, null, trialProgress);
     }
 
+    /// <summary>Runs a multiclass classification AutoML experiment.</summary>
     public ExperimentResult<MulticlassClassificationMetrics> RunMulticlassClassificationExperiment(IEnumerable<TEntity> items, string labelColumn = "Label", uint runtime = 10)
     {
         var data = _mlContext.Data.LoadFromEnumerable(items);
@@ -36,6 +40,7 @@ public class ModelSelector<TEntity> where TEntity : class, new()
         return experimentResult;
     }
 
+    /// <summary>Runs a binary classification AutoML experiment.</summary>
     public ExperimentResult<BinaryClassificationMetrics> RunBinaryClassificationExperiment(IEnumerable<TEntity> items, string labelColumn = "Label", uint runtime = 10)
     {
         var data = _mlContext.Data.LoadFromEnumerable(items);
@@ -45,6 +50,7 @@ public class ModelSelector<TEntity> where TEntity : class, new()
         return experimentResult;
     }
 
+    /// <summary>Runs a recommendation AutoML experiment.</summary>
     public ExperimentResult<RegressionMetrics> RunRecommendationExperiment(IEnumerable<TEntity> items, string labelColumn = "Label", uint runtime = 10)
     {
         var data = _mlContext.Data.LoadFromEnumerable(items);
@@ -54,6 +60,7 @@ public class ModelSelector<TEntity> where TEntity : class, new()
         return experimentResult;
     }
 
+    /// <summary>Runs a regression experiment without per-trial progress.</summary>
     public ExperimentResult<RegressionMetrics> RunRegressionExperiment(
         IEnumerable<TEntity> items,
         string labelColumn = "Label",

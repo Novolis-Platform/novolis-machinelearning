@@ -8,8 +8,10 @@ using Microsoft.ML.Data;
 
 namespace Novolis.MachineLearning.AutoMl.Extensions;
 
+/// <summary>Human-readable summaries of ML.NET metric objects.</summary>
 public static class MetricsExtensions
 {
+    /// <summary>Formats multiclass classification metrics for console output.</summary>
     public static string ToFriendlyString(this MulticlassClassificationMetrics metrics)
     {
         var stringBuilder = new StringBuilder();
@@ -28,6 +30,7 @@ public static class MetricsExtensions
         return stringBuilder.ToString();
     }
 
+    /// <summary>Formats cross-validated multiclass metrics.</summary>
     public static string ToFriendlyString(this IEnumerable<TrainCatalogBase.CrossValidationResult<MulticlassClassificationMetrics>> crossValResults)
     {
         var metricsInMultipleFolds = crossValResults.Select(r => r.Metrics);
@@ -65,6 +68,7 @@ public static class MetricsExtensions
         return stringBuilder.ToString();
     }
 
+    /// <summary>Formats regression metrics for console output.</summary>
     public static string ToFriendlyString(this RegressionMetrics metrics)
     {
         var stringBuilder = new StringBuilder();
@@ -81,6 +85,7 @@ public static class MetricsExtensions
         return stringBuilder.ToString();
     }
 
+    /// <summary>Formats cross-validated regression metrics.</summary>
     public static string ToFriendlyString(this IEnumerable<TrainCatalogBase.CrossValidationResult<RegressionMetrics>> crossValidationResults)
     {
         var L1 = crossValidationResults.Select(r => r.Metrics.MeanAbsoluteError);
@@ -103,6 +108,7 @@ public static class MetricsExtensions
         return stringBuilder.ToString();
     }
 
+    /// <summary>Sample standard deviation.</summary>
     public static double CalculateStandardDeviation(IEnumerable<double> values)
     {
         double average = values.Average();
@@ -111,6 +117,7 @@ public static class MetricsExtensions
         return standardDeviation;
     }
 
+    /// <summary>Half-width of the 95% confidence interval for the mean.</summary>
     public static double CalculateConfidenceInterval95(IEnumerable<double> values)
     {
         double confidenceInterval95 = 1.96 * CalculateStandardDeviation(values) / Math.Sqrt((values.Count() - 1));

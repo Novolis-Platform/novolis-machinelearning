@@ -1,5 +1,6 @@
 namespace Novolis.MachineLearning.Neural.Persistence;
 
+/// <summary>Persisted neural network topology and parameters.</summary>
 public sealed record NetworkSnapshot(
     string Id,
     string Name,
