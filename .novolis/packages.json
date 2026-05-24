@@ -3,7 +3,7 @@
     "Novolis.MachineLearning.Core": {
       "paths": [
         "src/Novolis.MachineLearning.Core/**",
-        "tests/Novolis.MachineLearning.Core.Tests/**",
+        "tests/Novolis.MachineLearning.Unit/Core/**",
         "Directory.Build.props",
         "Directory.Packages.props",
         "global.json"
@@ -22,7 +22,7 @@
     "Novolis.MachineLearning.Neural": {
       "paths": [
         "src/Novolis.MachineLearning.Neural/**",
-        "tests/Novolis.MachineLearning.Neural.Tests/**",
+        "tests/Novolis.MachineLearning.Unit/Neural/**",
         "Directory.Build.props",
         "Directory.Packages.props",
         "global.json"

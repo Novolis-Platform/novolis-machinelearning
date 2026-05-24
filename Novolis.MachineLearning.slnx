@@ -6,8 +6,7 @@
     <Project Path="src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests/Novolis.MachineLearning.Core.Tests/Novolis.MachineLearning.Core.Tests.csproj" />
-    <Project Path="tests/Novolis.MachineLearning.Neural.Tests/Novolis.MachineLearning.Neural.Tests.csproj" />
+    <Project Path="tests/Novolis.MachineLearning.Unit/Novolis.MachineLearning.Unit.csproj" />
     <Project Path="tests/Novolis.MachineLearning.TestSupport/Novolis.MachineLearning.TestSupport.csproj" />
     <Project Path="tests/Novolis.MachineLearning.Neural.TestSupport/Novolis.MachineLearning.Neural.TestSupport.csproj" />
   </Folder>

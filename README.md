@@ -19,8 +19,7 @@ Apps, presentation (Avalonia/Spectre), Aspire host, and legacy sample datasets r
 
 ```bash
 dotnet build Novolis.MachineLearning.slnx
-dotnet run --project tests/Novolis.MachineLearning.Core.Tests
-dotnet run --project tests/Novolis.MachineLearning.Neural.Tests
+dotnet run --project tests/Novolis.MachineLearning.Unit
 ```
 
 Neural tests use TUnit 1.x as executables (not `dotnet test` on .NET 10 SDK until CI adapter is updated).
