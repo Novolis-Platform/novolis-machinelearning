@@ -1,6 +1,6 @@
 # Novolis.MachineLearning.Neural
 
-Dense feed-forward networks with training.
+Dense feed-forward networks with supervised training and JSON file persistence.
 
 ## Install
 
@@ -13,8 +13,31 @@ dotnet add package Novolis.MachineLearning.Neural
 ## Quick start
 
 ```csharp
-// See docs/getting-started.md for integration examples.
+using Novolis.MachineLearning.Neural;
+using Novolis.MachineLearning.Neural.Persistence;
+
+var net = DenseNetwork.Create(
+    name: "policy",
+    inputSize: 4,
+    hiddenSizes: [8],
+    outputSize: 2);
+
+double loss = net.TrainSupervised(input, target, learningRate: 0.01);
+
+var repo = new FileNeuralNetworkRepository(
+    dataRoot,
+    new JsonNeuralNetworkSerializer());
+await repo.SaveAsync(net.ToSnapshot(), cancellationToken);
 ```
+
+Contracts live in `Novolis.MachineLearning.Neural.Abstractions`.
+
+## Related packages
+
+| Package | When to use |
+|---------|-------------|
+| `Novolis.MachineLearning.Neural.Abstractions` | Interfaces and snapshots only |
+| `Novolis.MachineLearning.Core` | Resolve `NetworksDirectory` paths |
 
 ## More documentation
 
@@ -23,4 +46,4 @@ dotnet add package Novolis.MachineLearning.Neural
 
 ## Support
 
-Pre-release. APIs may change between releases.
+Pre-release (`2026.1.*` on GitHub Packages).

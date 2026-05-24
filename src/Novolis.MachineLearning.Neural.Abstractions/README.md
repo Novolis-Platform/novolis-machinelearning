@@ -1,6 +1,6 @@
 # Novolis.MachineLearning.Neural.Abstractions
 
-Neural network contracts and snapshots.
+Contracts for neural networks, evaluation, and snapshot persistence.
 
 ## Install
 
@@ -13,8 +13,24 @@ dotnet add package Novolis.MachineLearning.Neural.Abstractions
 ## Quick start
 
 ```csharp
-// See docs/getting-started.md for integration examples.
+using Novolis.MachineLearning.Neural;
+using Novolis.MachineLearning.Neural.Persistence;
+
+INeuralNetwork network = /* DenseNetwork or test double */;
+ReadOnlyMemory<double> output = network.Forward(inputSpan);
+NetworkEvaluation eval = network.Evaluate(inputSpan);
+
+// Persistence contracts: INeuralNetworkRepository, NetworkSnapshot
 ```
+
+Reference this package for mocks; use `Novolis.MachineLearning.Neural` for the default implementation.
+
+## Related packages
+
+| Package | When to use |
+|---------|-------------|
+| `Novolis.MachineLearning.Neural` | `DenseNetwork` training and file repository |
+| `Novolis.MachineLearning.Core` | Data directory layout |
 
 ## More documentation
 
@@ -23,4 +39,4 @@ dotnet add package Novolis.MachineLearning.Neural.Abstractions
 
 ## Support
 
-Pre-release. APIs may change between releases.
+Pre-release (`2026.1.*` on GitHub Packages).

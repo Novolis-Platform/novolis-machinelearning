@@ -1,6 +1,6 @@
 # Novolis.MachineLearning.Core
 
-Repo paths and file system helpers.
+Repository layout helpers and physical/virtual file system utilities for ML data paths.
 
 ## Install
 
@@ -13,8 +13,23 @@ dotnet add package Novolis.MachineLearning.Core
 ## Quick start
 
 ```csharp
-// See docs/getting-started.md for integration examples.
+using Novolis.MachineLearning.Core.IO;
+using Novolis.MachineLearning.Core.Paths;
+
+string repoRoot = NovolisFileSystem.RepoRoot;
+var fs = NovolisFileSystem.CreatePhysical();
+string dataRoot = NovolisMachineLearningDataPaths.ResolveDataRoot(fs);
+string networksDir = NovolisMachineLearningDataPaths.NetworksDirectory(fs);
 ```
+
+Use with `Novolis.MachineLearning.Neural` file repositories for on-disk network snapshots.
+
+## Related packages
+
+| Package | When to use |
+|---------|-------------|
+| `Novolis.MachineLearning.Neural` | Trainable dense networks |
+| `Novolis.MachineLearning.AutoMl` | ML.NET experiment runners |
 
 ## More documentation
 
@@ -23,4 +38,4 @@ dotnet add package Novolis.MachineLearning.Core
 
 ## Support
 
-Pre-release. APIs may change between releases.
+Pre-release (`2026.1.*` on GitHub Packages).
