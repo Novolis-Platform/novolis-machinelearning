@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Novolis.MachineLearning.AutoMl</PackageId>
+    <IsPackable>true</IsPackable>
+    <Description>ML.NET AutoML experiment helpers and metrics formatting.</Description>
+    <RootNamespace>Novolis.MachineLearning.AutoMl</RootNamespace>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Analysis" />
+    <PackageReference Include="Microsoft.ML" />
+    <PackageReference Include="Microsoft.ML.AutoML" />
+    <PackageReference Include="Microsoft.ML.DataView" />
+    <PackageReference Include="Microsoft.ML.Experimental" />
+  </ItemGroup>
+</Project>

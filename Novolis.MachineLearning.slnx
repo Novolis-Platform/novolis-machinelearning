@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Novolis.MachineLearning.Core/Novolis.MachineLearning.Core.csproj" />
+    <Project Path="src/Novolis.MachineLearning.AutoMl/Novolis.MachineLearning.AutoMl.csproj" />
     <Project Path="src/Novolis.MachineLearning.Neural.Abstractions/Novolis.MachineLearning.Neural.Abstractions.csproj" />
     <Project Path="src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj" />
   </Folder>

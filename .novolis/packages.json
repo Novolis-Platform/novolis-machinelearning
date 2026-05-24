@@ -28,6 +28,15 @@
         "global.json"
       ],
       "project": "src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj"
+    },
+    "Novolis.MachineLearning.AutoMl": {
+      "paths": [
+        "src/Novolis.MachineLearning.AutoMl/**",
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "global.json"
+      ],
+      "project": "src/Novolis.MachineLearning.AutoMl/Novolis.MachineLearning.AutoMl.csproj"
     }
   }
 }

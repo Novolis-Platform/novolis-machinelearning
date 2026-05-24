@@ -1,6 +1,6 @@
 # novolis-machinelearning
 
-Novolis machine learning foundation packages extracted from [Frank.ML](https://github.com/frankhaugen/Frank.ML) (wave 8 — neural stack only).
+Novolis machine learning packages extracted from [Frank.ML](https://github.com/frankhaugen/Frank.ML).
 
 ## Packages
 
@@ -9,8 +9,11 @@ Novolis machine learning foundation packages extracted from [Frank.ML](https://g
 | `Novolis.MachineLearning.Core` | IO and data path helpers |
 | `Novolis.MachineLearning.Neural.Abstractions` | Dense network contracts and snapshots |
 | `Novolis.MachineLearning.Neural` | Training, mutation, JSON persistence |
+| `Novolis.MachineLearning.AutoMl` | ML.NET AutoML `ModelSelector` and metrics formatting |
 
-AutoML (`Microsoft.ML`) and app/domain code remain in the private Frank.ML repository.
+Headless racing simulation: [`Novolis.Simulation.Racing`](../novolis-simulation) in `novolis-simulation`. Evolution demo (trainer + neural controller): [novolis-dogfooding/apps/NeuralRacing](../novolis-dogfooding/apps/NeuralRacing).
+
+Apps, presentation (Avalonia/Spectre), Aspire host, and legacy sample datasets remain in the private Frank.ML repository.
 
 ## Build
 
