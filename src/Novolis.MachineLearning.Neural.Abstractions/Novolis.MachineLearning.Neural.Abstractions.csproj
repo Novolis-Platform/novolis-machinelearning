@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.Neural.Abstractions</PackageId>
-    <Version>0.1.0-preview.1</Version>
-    <IsPackable>true</IsPackable>
+<IsPackable>true</IsPackable>
     <Description>Contracts and DTOs for dense neural networks and snapshot serialization.</Description>
     <RootNamespace>Novolis.MachineLearning.Neural.Abstractions</RootNamespace>
     <DebugType>embedded</DebugType>

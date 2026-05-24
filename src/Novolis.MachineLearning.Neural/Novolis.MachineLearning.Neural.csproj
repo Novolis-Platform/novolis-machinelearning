@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.Neural</PackageId>
-    <Version>0.1.0-preview.1</Version>
-    <IsPackable>true</IsPackable>
+<IsPackable>true</IsPackable>
     <Description>Dense feedforward neural network implementation with training, mutation, and JSON persistence.</Description>
     <RootNamespace>Novolis.MachineLearning.Neural</RootNamespace>
     <DebugType>embedded</DebugType>

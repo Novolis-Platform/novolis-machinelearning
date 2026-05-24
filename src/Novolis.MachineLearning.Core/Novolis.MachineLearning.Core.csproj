@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.Core</PackageId>
-    <Version>0.1.0-preview.1</Version>
-    <IsPackable>true</IsPackable>
+<IsPackable>true</IsPackable>
     <Description>Core IO and path helpers for Novolis machine learning packages.</Description>
     <RootNamespace>Novolis.MachineLearning.Core</RootNamespace>
   </PropertyGroup>
