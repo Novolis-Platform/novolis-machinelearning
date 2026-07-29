@@ -46,8 +46,7 @@ public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
     public ValueTask<IReadOnlyList<NetworkSnapshotMetadata>> ListAsync(CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        if (!_fileSystem.Directory.Exists(_rootDirectory))
-            return ValueTask.FromResult<IReadOnlyList<NetworkSnapshotMetadata>>([]);
+        _fileSystem.Directory.CreateDirectory(_rootDirectory);
 
         var list = new List<NetworkSnapshotMetadata>();
         foreach (var file in _fileSystem.Directory.EnumerateFiles(_rootDirectory, "*.json"))
@@ -57,6 +56,7 @@ public sealed class FileNeuralNetworkRepository : INeuralNetworkRepository
             list.Add(new NetworkSnapshotMetadata(snapshot.Id, snapshot.Name, snapshot.CreatedAtUtc, snapshot.Metadata));
         }
 
+        list.Sort(static (a, b) => b.CreatedAtUtc.CompareTo(a.CreatedAtUtc));
         return ValueTask.FromResult<IReadOnlyList<NetworkSnapshotMetadata>>(list);
     }
 }
