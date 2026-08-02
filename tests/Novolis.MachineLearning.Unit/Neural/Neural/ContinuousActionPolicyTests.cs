@@ -4,6 +4,23 @@ namespace Novolis.MachineLearning.Unit.Neural;
 
 public class ContinuousActionPolicyTests
 {
+    private sealed class FrozenNetwork : INeuralNetwork
+    {
+        public FrozenNetwork(int inputSize, int outputSize)
+        {
+            InputSize = inputSize;
+            OutputSize = outputSize;
+        }
+
+        public string Name => "frozen";
+        public int InputSize { get; }
+        public int OutputSize { get; }
+        public IReadOnlyList<int> LayerSizes => [InputSize, OutputSize];
+        public ReadOnlyMemory<double> Forward(ReadOnlySpan<double> input) => new double[OutputSize];
+        public NetworkEvaluation Evaluate(ReadOnlySpan<double> input) =>
+            new([0.5], [[0.5]], [[]]);
+    }
+
     [Test]
     public async Task Create_Act_ReturnsClampedActions()
     {
@@ -22,6 +39,44 @@ public class ContinuousActionPolicyTests
         await Assert.That(actions[0]).IsLessThanOrEqualTo(1.0);
         await Assert.That(actions[1]).IsGreaterThanOrEqualTo(-1.0);
         await Assert.That(actions[2]).IsLessThanOrEqualTo(1.0);
+    }
+
+    [Test]
+    public async Task Act_RejectsWrongObservationSize()
+    {
+        var policy = ContinuousActionPolicy.Create("bad", observationSize: 2, actionSize: 1, hiddenSizes: [4], random: new Random(0));
+        var act = () => policy.Act(new double[] { 1, 2, 3 }, new double[1]);
+        await Assert.That(act).Throws<ArgumentException>();
+    }
+
+    [Test]
+    public async Task Act_RejectsShortActionsBuffer()
+    {
+        var policy = ContinuousActionPolicy.Create("bad", observationSize: 2, actionSize: 3, hiddenSizes: [4], random: new Random(0));
+        var act = () => policy.Act(new double[] { 1, 2 }, new double[2]);
+        await Assert.That(act).Throws<ArgumentException>();
+    }
+
+    [Test]
+    public async Task Constructor_RejectsNullNetwork()
+    {
+        var act = () => _ = new ContinuousActionPolicy(null!);
+        await Assert.That(act).Throws<ArgumentNullException>();
+    }
+
+    [Test]
+    public async Task Constructor_RejectsZeroOutputNetwork()
+    {
+        var act = () => _ = new ContinuousActionPolicy(new FrozenNetwork(inputSize: 2, outputSize: 0));
+        await Assert.That(act).Throws<ArgumentException>();
+    }
+
+    [Test]
+    public async Task Imitate_RequiresTrainableNetwork()
+    {
+        var frozen = new ContinuousActionPolicy(new FrozenNetwork(inputSize: 2, outputSize: 1));
+        var act = () => frozen.Imitate([0.1, 0.2], [0.5], learningRate: 0.1);
+        await Assert.That(act).Throws<InvalidOperationException>();
     }
 
     [Test]
