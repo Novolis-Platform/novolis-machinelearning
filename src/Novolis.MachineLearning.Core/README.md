@@ -1,3 +1,11 @@
+<!-- novolis-pkg-brand:start -->
+<p align="center">
+  <a href="https://github.com/Novolis-Platform/novolis-machinelearning">
+    <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-icon.svg" width="72" alt="Novolis"/>
+  </a>
+</p>
+<!-- novolis-pkg-brand:end -->
+
 # Novolis.MachineLearning.Core
 
 Repository layout helpers and physical/virtual file system utilities for ML data paths.
@@ -39,3 +47,4 @@ Use with `Novolis.MachineLearning.Neural` file repositories for on-disk network 
 ## Support
 
 Pre-release (`2026.1.*` on GitHub Packages).
+

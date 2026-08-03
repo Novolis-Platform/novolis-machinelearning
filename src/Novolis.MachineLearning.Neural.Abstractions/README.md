@@ -1,3 +1,11 @@
+<!-- novolis-pkg-brand:start -->
+<p align="center">
+  <a href="https://github.com/Novolis-Platform/novolis-machinelearning">
+    <img src="https://raw.githubusercontent.com/Novolis-Platform/.github/main/brand/logo-icon.svg" width="72" alt="Novolis"/>
+  </a>
+</p>
+<!-- novolis-pkg-brand:end -->
+
 # Novolis.MachineLearning.Neural.Abstractions
 
 Contracts for neural networks, evaluation, and snapshot persistence.
@@ -40,3 +48,4 @@ Reference this package for mocks; use `Novolis.MachineLearning.Neural` for the d
 ## Support
 
 Pre-release (`2026.1.*` on GitHub Packages).
+
