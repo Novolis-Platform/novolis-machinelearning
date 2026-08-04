@@ -8,8 +8,10 @@
     <PackageReference Include="TUnit" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="../../src/Novolis.MachineLearning.Algorithms/Novolis.MachineLearning.Algorithms.csproj" />
     <ProjectReference Include="../../src/Novolis.MachineLearning.AutoMl/Novolis.MachineLearning.AutoMl.csproj" />
     <ProjectReference Include="../../src/Novolis.MachineLearning.Core/Novolis.MachineLearning.Core.csproj" />
+    <ProjectReference Include="../../src/Novolis.MachineLearning.Dump/Novolis.MachineLearning.Dump.csproj" />
     <ProjectReference Include="../../src/Novolis.MachineLearning.Neural.Abstractions/Novolis.MachineLearning.Neural.Abstractions.csproj" />
     <ProjectReference Include="../../src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj" />
     <ProjectReference Include="../Novolis.MachineLearning.Neural.TestSupport/Novolis.MachineLearning.Neural.TestSupport.csproj" />

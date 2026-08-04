@@ -31,6 +31,20 @@ public static class NovolisMachineLearningDataPaths
         return fs.Path.GetFullPath(fs.Path.Combine(ResolveDataRoot(fs), "networks"));
     }
 
+    /// <summary>CodeGen dump fixtures for models (<c>data/dumps</c>).</summary>
+    public static string DumpsDirectory(IFileSystem? fileSystem = null)
+    {
+        var fs = fileSystem ?? NovolisFileSystem.CreatePhysical();
+        return fs.Path.GetFullPath(fs.Path.Combine(ResolveDataRoot(fs), "dumps"));
+    }
+
+    /// <summary>ML.NET zip model directory (<c>data/models</c>).</summary>
+    public static string ModelsDirectory(IFileSystem? fileSystem = null)
+    {
+        var fs = fileSystem ?? NovolisFileSystem.CreatePhysical();
+        return fs.Path.GetFullPath(fs.Path.Combine(ResolveDataRoot(fs), "models"));
+    }
+
     /// <summary>Application log directory (<c>data/logs</c>).</summary>
     public static string LogsDirectory(IFileSystem? fileSystem = null)
     {

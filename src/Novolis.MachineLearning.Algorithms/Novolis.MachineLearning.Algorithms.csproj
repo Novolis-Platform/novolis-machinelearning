@@ -1,20 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>Novolis.MachineLearning.AutoMl</PackageId>
+    <PackageId>Novolis.MachineLearning.Algorithms</PackageId>
     <IsPackable>true</IsPackable>
-    <Description>ML.NET AutoML experiment helpers, metrics formatting, and satellite trainer packages (FastTree, LightGBM, TimeSeries, Recommender).</Description>
-    <RootNamespace>Novolis.MachineLearning.AutoMl</RootNamespace>
+    <Description>Classic ML.NET trainers (Naive Bayes, FastTree, LightGBM, SDCA, time series, recommenders) with Novolis helpers.</Description>
+    <RootNamespace>Novolis.MachineLearning.Algorithms</RootNamespace>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.Analysis" />
     <PackageReference Include="Microsoft.ML" />
-    <PackageReference Include="Microsoft.ML.AutoML" />
     <PackageReference Include="Microsoft.ML.DataView" />
-    <PackageReference Include="Microsoft.ML.Experimental" />
     <PackageReference Include="Microsoft.ML.FastTree" />
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" />
     <PackageReference Include="Microsoft.ML.LightGbm" />
+    <PackageReference Include="Microsoft.ML.OnnxTransformer" />
     <PackageReference Include="Microsoft.ML.Recommender" />
     <PackageReference Include="Microsoft.ML.TimeSeries" />
+    <PackageReference Include="Microsoft.ML.Tokenizers" />
   </ItemGroup>
 </Project>

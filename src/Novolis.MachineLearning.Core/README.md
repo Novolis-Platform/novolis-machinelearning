@@ -28,15 +28,19 @@ string repoRoot = NovolisFileSystem.RepoRoot;
 var fs = NovolisFileSystem.CreatePhysical();
 string dataRoot = NovolisMachineLearningDataPaths.ResolveDataRoot(fs);
 string networksDir = NovolisMachineLearningDataPaths.NetworksDirectory(fs);
+string dumpsDir = NovolisMachineLearningDataPaths.DumpsDirectory(fs);
+string modelsDir = NovolisMachineLearningDataPaths.ModelsDirectory(fs);
 ```
 
-Use with `Novolis.MachineLearning.Neural` file repositories for on-disk network snapshots.
+Use with `Novolis.MachineLearning.Neural` / `Novolis.MachineLearning.Dump` repositories for on-disk snapshots and models.
 
 ## Related packages
 
 | Package | When to use |
 |---------|-------------|
 | `Novolis.MachineLearning.Neural` | Trainable dense networks |
+| `Novolis.MachineLearning.Dump` | Dump C# fixtures + ML.NET zip store |
+| `Novolis.MachineLearning.Algorithms` | Classic trainers (Naive Bayes, trees, …) |
 | `Novolis.MachineLearning.AutoMl` | ML.NET experiment runners |
 
 ## More documentation

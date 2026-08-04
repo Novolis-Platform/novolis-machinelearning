@@ -38,8 +38,10 @@
 
 | Package | Install | Package README |
 |---------|---------|----------------|
+| `Novolis.MachineLearning.Algorithms` | `dotnet add package Novolis.MachineLearning.Algorithms` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Algorithms/README.md) |
 | `Novolis.MachineLearning.AutoMl` | `dotnet add package Novolis.MachineLearning.AutoMl` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.AutoMl/README.md) |
 | `Novolis.MachineLearning.Core` | `dotnet add package Novolis.MachineLearning.Core` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Core/README.md) |
+| `Novolis.MachineLearning.Dump` | `dotnet add package Novolis.MachineLearning.Dump` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Dump/README.md) |
 | `Novolis.MachineLearning.Neural` | `dotnet add package Novolis.MachineLearning.Neural` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Neural/README.md) |
 | `Novolis.MachineLearning.Neural.Abstractions` | `dotnet add package Novolis.MachineLearning.Neural.Abstractions` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Neural.Abstractions/README.md) |
 
@@ -57,6 +59,8 @@ Novolis machine learning packages extracted from [Frank.ML](https://github.com/f
 | `Novolis.MachineLearning.Core` | IO and data path helpers |
 | `Novolis.MachineLearning.Neural.Abstractions` | Dense network contracts and snapshots |
 | `Novolis.MachineLearning.Neural` | Training, mutation, JSON persistence |
+| `Novolis.MachineLearning.Dump` | Persist models via CodeGen dump C# + ML.NET zip |
+| `Novolis.MachineLearning.Algorithms` | Classic trainers (Naive Bayes, FastTree, LightGBM, …) |
 | `Novolis.MachineLearning.AutoMl` | ML.NET AutoML `ModelSelector` and metrics formatting |
 
 Headless racing simulation: [`Novolis.Simulation.Racing`](../novolis-simulation) in `novolis-simulation`. Evolution demo (trainer + neural controller): [novolis-dogfooding/apps/NeuralRacing](../novolis-dogfooding/apps/NeuralRacing).

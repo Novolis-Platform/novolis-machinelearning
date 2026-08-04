@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Novolis.MachineLearning.Dump</PackageId>
+    <IsPackable>true</IsPackable>
+    <Description>Persist neural snapshots as CodeGen dump C# fixtures and ML.NET models as zip files.</Description>
+    <RootNamespace>Novolis.MachineLearning.Dump</RootNamespace>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Novolis.MachineLearning.Core\Novolis.MachineLearning.Core.csproj" />
+    <ProjectReference Include="..\Novolis.MachineLearning.Neural.Abstractions\Novolis.MachineLearning.Neural.Abstractions.csproj" />
+    <ProjectReference Include="..\Novolis.MachineLearning.Neural\Novolis.MachineLearning.Neural.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" />
+    <PackageReference Include="Novolis.CodeGen.Reflection.Dump" />
+    <PackageReference Include="System.IO.Abstractions" />
+    <PackageReference Include="VarDump" />
+  </ItemGroup>
+</Project>

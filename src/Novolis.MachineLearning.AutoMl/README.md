@@ -8,7 +8,7 @@
 
 # Novolis.MachineLearning.AutoMl
 
-ML.NET AutoML regression experiment helpers with friendly metric formatting.
+ML.NET AutoML experiment helpers with friendly metric formatting. Also references FastTree, LightGBM, Recommender, and TimeSeries so AutoML trials can use those trainers.
 
 ## Install
 

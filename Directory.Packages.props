@@ -14,10 +14,19 @@
     <PackageVersion Include="Microsoft.ML.AutoML" Version="0.23.0" />
     <PackageVersion Include="Microsoft.ML.DataView" Version="5.0.0" />
     <PackageVersion Include="Microsoft.ML.Experimental" Version="0.23.0" />
+    <PackageVersion Include="Microsoft.ML.FastTree" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.ML.ImageAnalytics" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.ML.LightGbm" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.ML.OnnxTransformer" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.ML.Recommender" Version="0.23.0" />
+    <PackageVersion Include="Microsoft.ML.TimeSeries" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.ML.Tokenizers" Version="2.0.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.203" />
+    <PackageVersion Include="Novolis.CodeGen.Reflection.Dump" Version="2026.1.*" />
     <PackageVersion Include="System.IO.Abstractions" Version="22.1.0" />
     <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.1.0" />
     <PackageVersion Include="TUnit" Version="1.44.39" />
     <PackageVersion Include="TUnit.Core" Version="1.44.39" />
+    <PackageVersion Include="VarDump" Version="1.0.5.17" />
   </ItemGroup>
 </Project>
