@@ -180,7 +180,9 @@ public sealed class MetricsExtensionsAndModelSelectorTests
         var settings = NovolisMachineLearningRepoPaths.NeuralLabsSettingsDirectory(fs);
         await Assert.That(sessions).Contains("neural-labs");
         await Assert.That(settings).Contains("settings");
-        await Assert.That(NovolisMachineLearningRepoPaths.TryGetRepoRoot(@"C:\orphan", fs)).IsNull();
+        await Assert.That(NovolisMachineLearningRepoPaths.TryGetRepoRoot(
+            Path.GetFullPath(Path.Combine(Path.DirectorySeparatorChar == '\\' ? @"C:\orphan" : "/orphan")),
+            fs)).IsNull();
     }
 
     [Test]

@@ -6,28 +6,38 @@ namespace Novolis.MachineLearning.Core.Tests.Paths;
 
 public sealed class PathDiscoveryTests
 {
+    static string Root(params string[] parts)
+    {
+        var root = Path.GetFullPath(Path.Combine(Path.DirectorySeparatorChar == '\\' ? @"C:\repo" : "/repo"));
+        return parts.Length == 0 ? root : Path.Combine([root, .. parts]);
+    }
+
     [Test]
     public async Task TryGetDirectoryContainingFile_FindsMarkerInParent()
     {
+        var repo = Root();
+        var marker = Root("Novolis.MachineLearning.slnx");
+        var start = Root("bin", "debug");
         var fs = new MockFileSystem(new Dictionary<string, MockFileData>
         {
-            { @"C:\repo\Novolis.MachineLearning.slnx", new MockFileData("") },
-            { @"C:\repo\bin\debug\App.dll", new MockFileData("") },
-        });
+            { marker, new MockFileData("") },
+            { Root("bin", "debug", "App.dll"), new MockFileData("") },
+        }, repo);
         var found = NovolisMachineLearningPathDiscovery.TryGetDirectoryContainingFile(
-            @"C:\repo\bin\debug",
+            start,
             "Novolis.MachineLearning.slnx",
             maxDepth: 8,
             fs);
-        await Assert.That(found).IsEqualTo(@"C:\repo");
+        await Assert.That(found).IsEqualTo(repo);
     }
 
     [Test]
     public async Task TryGetDirectoryContainingFile_ReturnsNull_WhenNotFound()
     {
-        var fs = new MockFileSystem();
+        var nowhere = Root("nowhere");
+        var fs = new MockFileSystem(new Dictionary<string, MockFileData>(), nowhere);
         var found = NovolisMachineLearningPathDiscovery.TryGetDirectoryContainingFile(
-            @"C:\nowhere",
+            nowhere,
             "missing.marker",
             maxDepth: 3,
             fs);
