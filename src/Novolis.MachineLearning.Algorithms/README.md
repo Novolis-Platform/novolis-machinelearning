@@ -8,7 +8,7 @@
 
 # Novolis.MachineLearning.Algorithms
 
-Classic ML.NET trainers and satellite packages: Naive Bayes, FastTree, LightGBM, SDCA, time series, recommenders, image analytics, ONNX, and tokenizers.
+Classic ML.NET trainers plus a typed Naive Bayes library (`Features<T>`, Gaussian / Bernoulli) and satellite packages: FastTree, LightGBM, SDCA, time series, recommenders, image analytics, ONNX, and tokenizers.
 
 ## Install
 
@@ -22,11 +22,24 @@ dotnet add package Novolis.MachineLearning.Algorithms
 
 ```csharp
 using Novolis.MachineLearning.Algorithms;
+using Novolis.MachineLearning.Algorithms.NaiveBayes;
 
+// Typed Features<T> Naive Bayes (pure C#, no ML.NET pipeline)
+var trainer = new GaussianNaiveBayesTrainer<double, string>();
+var model = trainer.Fit(
+[
+    new(new Features<double>(5.1, 3.5, 1.4, 0.2), "setosa"),
+    new(new Features<double>(6.4, 3.2, 4.5, 1.5), "versicolor"),
+]);
+var species = model.Predict(new Features<double>(5.0, 3.4, 1.5, 0.2));
+
+// ML.NET classic trainers
 var trainers = new ClassicTrainers();
-var model = trainers.FitNaiveBayes(rows, labelColumn: nameof(Row.Label), featureColumns: ["F1", "F2"]);
+var nb = trainers.FitNaiveBayes(rows, labelColumn: nameof(Row.Label), featureColumns: ["F1", "F2"]);
 var tree = trainers.FitFastTreeBinary(rows, labelColumn: nameof(Row.Label), featureColumns: ["F1", "F2"]);
 ```
+
+`Features<T>` requires unmanaged `IEquatable<T>` elements. Gaussian Naive Bayes further requires `INumber<T>`; Bernoulli Naive Bayes is limited to `Features<bool>`.
 
 Brought-in NuGets: `Microsoft.ML`, `Microsoft.ML.FastTree`, `Microsoft.ML.LightGbm`, `Microsoft.ML.TimeSeries`, `Microsoft.ML.Recommender`, `Microsoft.ML.ImageAnalytics`, `Microsoft.ML.OnnxTransformer`, `Microsoft.ML.Tokenizers`.
 

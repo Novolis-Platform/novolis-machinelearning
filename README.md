@@ -60,7 +60,7 @@ Novolis machine learning packages extracted from [Frank.ML](https://github.com/f
 | `Novolis.MachineLearning.Neural.Abstractions` | Dense network contracts and snapshots |
 | `Novolis.MachineLearning.Neural` | Training, mutation, JSON persistence |
 | `Novolis.MachineLearning.Dump` | Persist models via CodeGen dump C# + ML.NET zip |
-| `Novolis.MachineLearning.Algorithms` | Classic trainers (Naive Bayes, FastTree, LightGBM, …) |
+| `Novolis.MachineLearning.Algorithms` | Classic trainers + typed `Features<T>` Naive Bayes (Gaussian/Bernoulli) |
 | `Novolis.MachineLearning.AutoMl` | ML.NET AutoML `ModelSelector` and metrics formatting |
 
 Headless racing simulation: [`Novolis.Simulation.Racing`](../novolis-simulation) in `novolis-simulation`. Evolution demo (trainer + neural controller): [novolis-dogfooding/apps/NeuralRacing](../novolis-dogfooding/apps/NeuralRacing).

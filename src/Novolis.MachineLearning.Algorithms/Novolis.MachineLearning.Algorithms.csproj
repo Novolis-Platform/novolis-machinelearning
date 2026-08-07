@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.Algorithms</PackageId>
     <IsPackable>true</IsPackable>
-    <Description>Classic ML.NET trainers (Naive Bayes, FastTree, LightGBM, SDCA, time series, recommenders) with Novolis helpers.</Description>
+    <Description>Classic ML.NET trainers plus typed Features&lt;T&gt; Naive Bayes (Gaussian/Bernoulli), FastTree, LightGBM, SDCA, time series, and recommenders.</Description>
     <RootNamespace>Novolis.MachineLearning.Algorithms</RootNamespace>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
