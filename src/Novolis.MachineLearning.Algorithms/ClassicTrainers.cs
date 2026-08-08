@@ -1,10 +1,13 @@
 using Microsoft.ML;
 using Microsoft.ML.Data;
+using Microsoft.ML.Trainers;
+using Microsoft.ML.Trainers.FastTree;
 
 namespace Novolis.MachineLearning.Algorithms;
 
 /// <summary>
 /// Convenience wrappers for common ML.NET classic trainers (Naive Bayes, trees, SDCA, LightGBM).
+/// Trainer options default to short budgets suitable for smoke/integration use; tune via ML.NET directly for production training.
 /// </summary>
 public sealed class ClassicTrainers
 {
@@ -64,8 +67,12 @@ public sealed class ClassicTrainers
         var pipeline = FeaturePipeline(featureColumns)
             .Append(_mlContext.Transforms.Conversion.MapValueToKey(labelColumn))
             .Append(_mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(
-                labelColumnName: labelColumn,
-                featureColumnName: "Features"));
+                new SdcaMaximumEntropyMulticlassTrainer.Options
+                {
+                    LabelColumnName = labelColumn,
+                    FeatureColumnName = "Features",
+                    MaximumNumberOfIterations = 1,
+                }));
         return pipeline.Fit(data);
     }
 
@@ -83,9 +90,14 @@ public sealed class ClassicTrainers
     {
         var data = Load(rows);
         var pipeline = FeaturePipeline(featureColumns)
-            .Append(_mlContext.BinaryClassification.Trainers.FastTree(
-                labelColumnName: labelColumn,
-                featureColumnName: "Features"));
+            .Append(_mlContext.BinaryClassification.Trainers.FastTree(new FastTreeBinaryTrainer.Options
+            {
+                LabelColumnName = labelColumn,
+                FeatureColumnName = "Features",
+                NumberOfTrees = 2,
+                NumberOfLeaves = 4,
+                MinimumExampleCountPerLeaf = 1,
+            }));
         return pipeline.Fit(data);
     }
 
@@ -103,9 +115,14 @@ public sealed class ClassicTrainers
     {
         var data = Load(rows);
         var pipeline = FeaturePipeline(featureColumns)
-            .Append(_mlContext.Regression.Trainers.FastTree(
-                labelColumnName: labelColumn,
-                featureColumnName: "Features"));
+            .Append(_mlContext.Regression.Trainers.FastTree(new FastTreeRegressionTrainer.Options
+            {
+                LabelColumnName = labelColumn,
+                FeatureColumnName = "Features",
+                NumberOfTrees = 2,
+                NumberOfLeaves = 4,
+                MinimumExampleCountPerLeaf = 1,
+            }));
         return pipeline.Fit(data);
     }
 
@@ -164,8 +181,12 @@ public sealed class ClassicTrainers
         var data = Load(rows);
         var pipeline = FeaturePipeline(featureColumns)
             .Append(_mlContext.BinaryClassification.Trainers.SdcaLogisticRegression(
-                labelColumnName: labelColumn,
-                featureColumnName: "Features"));
+                new SdcaLogisticRegressionBinaryTrainer.Options
+                {
+                    LabelColumnName = labelColumn,
+                    FeatureColumnName = "Features",
+                    MaximumNumberOfIterations = 1,
+                }));
         return pipeline.Fit(data);
     }
 

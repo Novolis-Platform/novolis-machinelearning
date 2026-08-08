@@ -1,5 +1,6 @@
 using Microsoft.ML;
 using Microsoft.ML.Data;
+using Microsoft.ML.Trainers;
 
 using Novolis.MachineLearning.Dump;
 
@@ -27,10 +28,15 @@ public sealed class FileMlModelStoreTests
                 Label = i % 2 == 0,
             });
             var data = ml.Data.LoadFromEnumerable(rows);
+            // One SDCA iteration is enough to round-trip a non-null transformer through the store.
             var pipeline = ml.Transforms.Concatenate("Features", nameof(SampleRow.Feature))
                 .Append(ml.BinaryClassification.Trainers.SdcaLogisticRegression(
-                    labelColumnName: nameof(SampleRow.Label),
-                    featureColumnName: "Features"));
+                    new SdcaLogisticRegressionBinaryTrainer.Options
+                    {
+                        LabelColumnName = nameof(SampleRow.Label),
+                        FeatureColumnName = "Features",
+                        MaximumNumberOfIterations = 1,
+                    }));
             var model = pipeline.Fit(data);
 
             var store = new FileMlModelStore(root);

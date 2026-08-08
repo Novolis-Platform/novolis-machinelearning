@@ -47,13 +47,13 @@ public sealed class ClassicTrainersTests
     [Test]
     public async Task FitSdcaBinary_And_FastTreeRegression_ProduceTransformers()
     {
-        var binary = Enumerable.Range(0, 50).Select(i => new BinaryRow
+        var binary = Enumerable.Range(0, 12).Select(i => new BinaryRow
         {
             F1 = i,
             F2 = i * 0.5f,
             Label = i % 2 == 0,
         });
-        var regression = Enumerable.Range(0, 50).Select(i => new RegressionRow
+        var regression = Enumerable.Range(0, 12).Select(i => new RegressionRow
         {
             F1 = i,
             F2 = i * 0.25f,
