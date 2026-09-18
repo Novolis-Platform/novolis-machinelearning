@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Novolis.MachineLearning.SharpMind</PackageId>
+    <IsPackable>true</IsPackable>
+    <Description>Optional SharpMind-backed local LLM chat adapter for Novolis machine learning packages.</Description>
+    <RootNamespace>Novolis.MachineLearning.SharpMind</RootNamespace>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Novolis.MachineLearning.Llm.Abstractions\Novolis.MachineLearning.Llm.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SharpMind.Core" />
+    <PackageReference Include="SharpMind.Data" />
+    <PackageReference Include="SharpMind.Inference" />
+    <PackageReference Include="SharpMind.Model" />
+    <PackageReference Include="SharpMind.Tokenization" />
+    <PackageReference Include="SharpMind.Training" />
+  </ItemGroup>
+</Project>

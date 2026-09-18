@@ -24,10 +24,16 @@
     <PackageVersion Include="Microsoft.ML.Recommender" Version="0.23.0" />
     <PackageVersion Include="Microsoft.ML.TimeSeries" Version="5.0.0" />
     <PackageVersion Include="Microsoft.ML.Tokenizers" Version="2.0.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.203" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.401" />
     <PackageVersion Include="Novolis.CodeGen.Reflection.Dump" Version="2026.1.*" />
-    <PackageVersion Include="System.IO.Abstractions" Version="22.1.0" />
-    <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.1.0" />
+    <PackageVersion Include="SharpMind.Core" Version="1.0.0" />
+    <PackageVersion Include="SharpMind.Data" Version="1.0.0" />
+    <PackageVersion Include="SharpMind.Inference" Version="1.0.0" />
+    <PackageVersion Include="SharpMind.Model" Version="1.0.0" />
+    <PackageVersion Include="SharpMind.Tokenization" Version="1.0.0" />
+    <PackageVersion Include="SharpMind.Training" Version="1.0.0" />
+    <PackageVersion Include="System.IO.Abstractions" Version="22.1.1" />
+    <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.1.1" />
     <PackageVersion Include="TUnit" Version="1.44.39" />
     <PackageVersion Include="TUnit.Core" Version="1.44.39" />
     <PackageVersion Include="VarDump" Version="1.0.5.17" />

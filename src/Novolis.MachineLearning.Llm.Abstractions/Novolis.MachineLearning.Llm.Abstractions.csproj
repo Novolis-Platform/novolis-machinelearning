@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Novolis.MachineLearning.Llm.Abstractions</PackageId>
+    <IsPackable>true</IsPackable>
+    <Description>Provider-neutral contracts for local and remote language model chat generation.</Description>
+    <RootNamespace>Novolis.MachineLearning.Llm.Abstractions</RootNamespace>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+</Project>

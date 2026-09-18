@@ -20,8 +20,10 @@ Published docs: [https://novolis-platform.github.io/.github/novolis-machinelearn
 | `Novolis.MachineLearning.AutoMl` |
 | `Novolis.MachineLearning.Core` |
 | `Novolis.MachineLearning.Dump` |
+| `Novolis.MachineLearning.Llm.Abstractions` |
 | `Novolis.MachineLearning.Neural` |
 | `Novolis.MachineLearning.Neural.Abstractions` |
+| `Novolis.MachineLearning.SharpMind` |
 
 ## More
 

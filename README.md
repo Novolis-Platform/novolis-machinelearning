@@ -45,8 +45,10 @@
 | `Novolis.MachineLearning.AutoMl` | `dotnet add package Novolis.MachineLearning.AutoMl` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.AutoMl/README.md) |
 | `Novolis.MachineLearning.Core` | `dotnet add package Novolis.MachineLearning.Core` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Core/README.md) |
 | `Novolis.MachineLearning.Dump` | `dotnet add package Novolis.MachineLearning.Dump` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Dump/README.md) |
+| `Novolis.MachineLearning.Llm.Abstractions` | `dotnet add package Novolis.MachineLearning.Llm.Abstractions` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Llm.Abstractions/README.md) |
 | `Novolis.MachineLearning.Neural` | `dotnet add package Novolis.MachineLearning.Neural` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Neural/README.md) |
 | `Novolis.MachineLearning.Neural.Abstractions` | `dotnet add package Novolis.MachineLearning.Neural.Abstractions` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.Neural.Abstractions/README.md) |
+| `Novolis.MachineLearning.SharpMind` | `dotnet add package Novolis.MachineLearning.SharpMind` | [README](https://github.com/Novolis-Platform/novolis-machinelearning/blob/main/src/Novolis.MachineLearning.SharpMind/README.md) |
 
 For NuGet.org and Visual Studio, the **embedded** README.md inside each package is authoritative.
 
@@ -65,6 +67,8 @@ Novolis machine learning packages extracted from [Frank.ML](https://github.com/f
 | `Novolis.MachineLearning.Dump` | Persist models via CodeGen dump C# + ML.NET zip |
 | `Novolis.MachineLearning.Algorithms` | Classic trainers + typed `Features<T>` Naive Bayes (Gaussian/Bernoulli) |
 | `Novolis.MachineLearning.AutoMl` | ML.NET AutoML `ModelSelector` and metrics formatting |
+| `Novolis.MachineLearning.Llm.Abstractions` | Provider-neutral chat model contracts |
+| `Novolis.MachineLearning.SharpMind` | Optional SharpMind local LLM chat and tiny text training backend |
 
 Headless racing simulation: [`Novolis.Simulation.Racing`](../novolis-simulation) in `novolis-simulation`. Evolution demo (trainer + neural controller): [novolis-dogfooding/apps/NeuralRacing](../novolis-dogfooding/apps/NeuralRacing).
 

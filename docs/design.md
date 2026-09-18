@@ -26,8 +26,10 @@ Follow [library-boundaries](https://github.com/Novolis-Platform/novolis-governan
 - `Novolis.MachineLearning.AutoMl`
 - `Novolis.MachineLearning.Core`
 - `Novolis.MachineLearning.Dump`
+- `Novolis.MachineLearning.Llm.Abstractions`
 - `Novolis.MachineLearning.Neural`
 - `Novolis.MachineLearning.Neural.Abstractions`
+- `Novolis.MachineLearning.SharpMind`
 
 ## Topics
 

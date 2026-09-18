@@ -4,8 +4,10 @@
     <Project Path="src/Novolis.MachineLearning.AutoMl/Novolis.MachineLearning.AutoMl.csproj" />
     <Project Path="src/Novolis.MachineLearning.Algorithms/Novolis.MachineLearning.Algorithms.csproj" />
     <Project Path="src/Novolis.MachineLearning.Dump/Novolis.MachineLearning.Dump.csproj" />
+    <Project Path="src/Novolis.MachineLearning.Llm.Abstractions/Novolis.MachineLearning.Llm.Abstractions.csproj" />
     <Project Path="src/Novolis.MachineLearning.Neural.Abstractions/Novolis.MachineLearning.Neural.Abstractions.csproj" />
     <Project Path="src/Novolis.MachineLearning.Neural/Novolis.MachineLearning.Neural.csproj" />
+    <Project Path="src/Novolis.MachineLearning.SharpMind/Novolis.MachineLearning.SharpMind.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Novolis.MachineLearning.Unit/Novolis.MachineLearning.Unit.csproj" />
