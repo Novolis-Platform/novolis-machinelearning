@@ -8,7 +8,7 @@
     <NuGetAuditLevel>high</NuGetAuditLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.Bcl.Memory" Version="10.0.7" />
+    <PackageVersion Include="Microsoft.Bcl.Memory" Version="10.0.12" />
     <!-- Align with Novolis.CodeGen.Reflection.Dump (4.14) vs Microsoft.Data.Analysis (4.13). -->
     <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
@@ -26,16 +26,16 @@
     <PackageVersion Include="Microsoft.ML.Tokenizers" Version="2.0.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.401" />
     <PackageVersion Include="Novolis.CodeGen.Reflection.Dump" Version="2026.1.*" />
-    <PackageVersion Include="SharpMind.Core" Version="1.0.0" />
-    <PackageVersion Include="SharpMind.Data" Version="1.0.0" />
-    <PackageVersion Include="SharpMind.Inference" Version="1.0.0" />
-    <PackageVersion Include="SharpMind.Model" Version="1.0.0" />
-    <PackageVersion Include="SharpMind.Tokenization" Version="1.0.0" />
-    <PackageVersion Include="SharpMind.Training" Version="1.0.0" />
-    <PackageVersion Include="System.IO.Abstractions" Version="22.1.1" />
-    <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.1.1" />
-    <PackageVersion Include="TUnit" Version="1.44.39" />
-    <PackageVersion Include="TUnit.Core" Version="1.44.39" />
-    <PackageVersion Include="VarDump" Version="1.0.5.17" />
+    <PackageVersion Include="SharpMind.Core" Version="1.0.7" />
+    <PackageVersion Include="SharpMind.Data" Version="1.0.7" />
+    <PackageVersion Include="SharpMind.Inference" Version="1.0.7" />
+    <PackageVersion Include="SharpMind.Model" Version="1.0.7" />
+    <PackageVersion Include="SharpMind.Tokenization" Version="1.0.7" />
+    <PackageVersion Include="SharpMind.Training" Version="1.0.7" />
+    <PackageVersion Include="System.IO.Abstractions" Version="22.3.0" />
+    <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.3.0" />
+    <PackageVersion Include="TUnit" Version="1.72.4" />
+    <PackageVersion Include="TUnit.Core" Version="1.72.4" />
+    <PackageVersion Include="VarDump" Version="1.0.6" />
   </ItemGroup>
 </Project>
