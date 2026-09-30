@@ -1,17 +1,5 @@
 namespace Novolis.MachineLearning.Algorithms.Tests.CreatureBattle;
 
-/// <summary>One attack option on a creature card (test oracle only).</summary>
-internal readonly record struct AttackOption(int BaseDamage, int EnergyCost, string Name);
-
-/// <summary>Active attacker vs defender board snapshot for KO resolution.</summary>
-internal readonly record struct BoardState(
-    int BaseDamage,
-    int DefenderHp,
-    bool HasWeakness,
-    bool HasResistance,
-    int AttachedEnergy,
-    int AttackCost);
-
 /// <summary>Homemade Creature Battle Card Game rules used as a Naive Bayes label oracle.</summary>
 internal static class CreatureBattleRules
 {
@@ -78,17 +66,4 @@ internal static class CreatureBattleRules
 
         return aDmg > bDmg ? AttackChoice.AttackA : AttackChoice.AttackB;
     }
-}
-
-internal enum CombatOutcome
-{
-    Survive,
-    KnockOut,
-}
-
-internal enum AttackChoice
-{
-    Retreat,
-    AttackA,
-    AttackB,
 }
