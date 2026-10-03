@@ -16,7 +16,7 @@ dotnet add package Novolis.MachineLearning.SharpMind
 
 **Prerequisites:** [.NET 10 SDK](https://dotnet.microsoft.com/download) (`net10.0`).
 
-## Tiny training smoke
+## Quick start
 
 ```csharp
 using Novolis.MachineLearning.SharpMind;
