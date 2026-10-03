@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.Llm.Abstractions</PackageId>
     <IsPackable>true</IsPackable>
-    <Description>Provider-neutral contracts for local and remote language model chat generation.</Description>
+    <Description>Provider-neutral contracts for language-model training runs.</Description>
     <RootNamespace>Novolis.MachineLearning.Llm.Abstractions</RootNamespace>
     <DebugType>embedded</DebugType>
   </PropertyGroup>

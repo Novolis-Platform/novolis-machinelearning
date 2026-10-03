@@ -6,7 +6,7 @@
 
 # Novolis.MachineLearning.Llm.Abstractions
 
-Provider-neutral contracts for chat-oriented language models.
+Provider-neutral contracts for language-model training runs.
 
 ## Install
 
@@ -18,21 +18,7 @@ dotnet add package Novolis.MachineLearning.Llm.Abstractions
 
 ## Quick start
 
-```csharp
-using Novolis.MachineLearning.Llm;
-
-IChatModel model = /* provider adapter */;
-
-var response = await model.GenerateAsync(
-[
-    new ChatMessage(ChatMessageRole.System, "Be concise."),
-    new ChatMessage(ChatMessageRole.User, "Summarize this telemetry batch."),
-]);
-```
-
-Use provider packages such as `Novolis.MachineLearning.SharpMind` for concrete backends.
-
-For small local training experiments, use `ILanguageModelTrainer` with provider packages that support training.
+Use `ILanguageModelTrainer` with provider packages that support training.
 
 ```csharp
 ILanguageModelTrainer trainer = /* provider adapter */;

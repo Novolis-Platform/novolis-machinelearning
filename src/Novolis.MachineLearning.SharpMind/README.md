@@ -6,7 +6,7 @@
 
 # Novolis.MachineLearning.SharpMind
 
-Optional SharpMind-backed local LLM chat and tiny from-scratch text training adapter.
+Optional SharpMind-backed tiny from-scratch text training adapter.
 
 ## Install
 
@@ -14,26 +14,7 @@ Optional SharpMind-backed local LLM chat and tiny from-scratch text training ada
 dotnet add package Novolis.MachineLearning.SharpMind
 ```
 
-**Prerequisites:** [.NET 10 SDK](https://dotnet.microsoft.com/download) (`net10.0`) and a local SharpMind-supported model file such as GGUF or SMM.
-
-## Quick start
-
-```csharp
-using Novolis.MachineLearning.Llm;
-using Novolis.MachineLearning.SharpMind;
-
-await using var model = SharpMindChatModel.Load(new SharpMindChatModelOptions
-{
-    ModelPath = @"C:\Models\Qwen3-0.6B-Q8_0.gguf",
-    LoadMode = SharpMindModelLoadMode.Streaming,
-});
-
-var response = await model.GenerateAsync(
-[
-    new ChatMessage(ChatMessageRole.System, "Be concise."),
-    new ChatMessage(ChatMessageRole.User, "Explain the current simulation state."),
-]);
-```
+**Prerequisites:** [.NET 10 SDK](https://dotnet.microsoft.com/download) (`net10.0`).
 
 ## Tiny training smoke
 

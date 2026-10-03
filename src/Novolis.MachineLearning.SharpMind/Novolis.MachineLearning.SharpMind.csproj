@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PackageId>Novolis.MachineLearning.SharpMind</PackageId>
     <IsPackable>true</IsPackable>
-    <Description>Optional SharpMind-backed local LLM chat adapter for Novolis machine learning packages.</Description>
+    <Description>Optional SharpMind-backed text trainer for Novolis machine learning packages.</Description>
     <RootNamespace>Novolis.MachineLearning.SharpMind</RootNamespace>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
