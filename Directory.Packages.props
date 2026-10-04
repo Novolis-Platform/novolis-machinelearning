@@ -34,8 +34,8 @@
     <PackageVersion Include="SharpMind.Training" Version="1.0.7" />
     <PackageVersion Include="System.IO.Abstractions" Version="22.3.0" />
     <PackageVersion Include="System.IO.Abstractions.TestingHelpers" Version="22.3.0" />
-    <PackageVersion Include="TUnit" Version="1.72.4" />
-    <PackageVersion Include="TUnit.Core" Version="1.72.4" />
+    <PackageVersion Include="TUnit" Version="1.72.16" />
+    <PackageVersion Include="TUnit.Core" Version="1.72.16" />
     <PackageVersion Include="VarDump" Version="1.0.6" />
   </ItemGroup>
 </Project>
